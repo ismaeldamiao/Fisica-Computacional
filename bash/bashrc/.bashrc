@@ -18,7 +18,6 @@ alias l='ls -CF'
 alias clear='clear && clear'
 alias ps='ps arxu'
 alias cp='cp -R' # ↓ aliases recursivos
-alias mv='mv -rp'
 alias rm='rm -R' # Cuidado, perigoso!!
 alias mkdir='mkdir -p'
 alias scp='scp -rp'
