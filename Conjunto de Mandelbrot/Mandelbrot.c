@@ -9,39 +9,39 @@
              Mandelbrot.
    Escrito em: 14 de agosto de 2019
 */
-
+/* Bibliotecas -------------------------------------------------------------- */
 #include<stdio.h>
 #include<math.h>
 #include<complex.h>
-
+/* Definicoes --------------------------------------------------------------- */
+#define TRUE 1
+#define FALSE 0
+/* Funcao principal --------------------------------------------------------- */
 int main(){
-   double _Complex PontoC = -2. + -1. * I, sequencia = 0. + 0. * I;
-   double Inclemento = 1.e-3, i, j;
-   int k, pertence = 1;
-   FILE * PontosConjunto;
+   double _Complex PontoC = -2.0 + -1.0 * I, sequencia = 0.0 + 0.0 * I;
+   double Inclemento = 1.0e-3, i, j;
+   int k, pertence;
+   FILE *PontosConjunto;
 
    PontosConjunto = fopen("PontosConjuntoMandelbrot.dat", "w");
 
-   for(i = -2.; i <= 1.; i += Inclemento){
-      for(j = -1.; j <= 1.; j += Inclemento){
+   for(i = -2.0; i <= 1.0; i += Inclemento){
+      for(j = -1.0; j <= 1.0; j += Inclemento){
          /* Testar se nos primeiros 5000 termos da sequencia ela indica se ira 
          divergir*/
+         PontoC = i + j * I; /* Teste com este ponto*/
+         pertence = TRUE; /* Suponha que o ponto pertence ao conjunto */
          for(k = 1; k <= 5000; ++k){
-            sequencia = cpow(sequencia, 2.) + PontoC;
-            if(cabs(sequencia) > 2.){
-               pertence = 0;/*A sequencia divergiu*/
+            sequencia = cpow(sequencia, 2.0) + PontoC;
+            if(cabs(sequencia) > 2.0){ /* Teste se ele de fato pertence */
+               pertence = FALSE; /* Ele nao pertence :-( */
                break;
             }
          }
-         /*Caso nao tenha divergido, escreva o ponto no arquivo*/
-         if(pertence == 1){
-            fprintf(PontosConjunto, "%f %f\n", creal(PontoC), cimag(PontoC));
-         }
-         PontoC += Inclemento * I;/*Teste com outro ponto*/
-         sequencia = 0. + 0. * I;/*Zere a sequencia*/
-         pertence = 1;/*A sequencia ainda nao divergiu*/
+         /*Caso pertenca, escreva o ponto no arquivo*/
+         if(pertence)
+            fprintf(PontosConjunto, "%g %g\n", creal(PontoC), cimag(PontoC));
+         sequencia = 0.0 + 0.0 * I;/*Zere a sequencia*/
       }
-      PontoC = PontoC + Inclemento -2. * cimag(PontoC) * I;/*Teste com outro 
-      ponto*/
    }
 }
