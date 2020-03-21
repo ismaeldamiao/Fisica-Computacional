@@ -8,3 +8,5 @@ permanece sempre menor que 2.
 Com
 
 ![](https://latex.codecogs.com/gif.latex?Z,&space;C&space;\in&space;\mathbb{C})
+
+![](PontosConjuntoMandelbrot.png)
