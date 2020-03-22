@@ -1,1 +1,3 @@
-# Fisica-Computacional
+# Sierpinsky
+
+![](Sierpinsky_Gasket.png)
