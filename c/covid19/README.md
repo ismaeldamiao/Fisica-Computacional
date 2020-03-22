@@ -7,3 +7,5 @@ Repósitório da página [COVID-19 AL](https://ismaeldamiao.blogspot.com/p/covid
 Aqui você encontra os códigos para calcular as projeções e gerar os gráficos, assim como os dados usados.
 
 ![](al.png)
+
+![](Maceio.png)
