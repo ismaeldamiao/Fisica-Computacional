@@ -1,4 +1,4 @@
-# Conpilando
+# Compilando
 
 g++ Oscilador.c
 
