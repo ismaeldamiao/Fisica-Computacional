@@ -11,16 +11,10 @@
 */
 #include<stdio.h>
 #include<math.h>
-double omega2;
-double kVelocidade(double posicao){
-   return - omega2 * posicao;
-}
-double kPosicao(double velocidade){
-   return velocidade;
-}
 int main(void){
    int count = 0, countMax;
-   double k, massa, posicao, velocidade, tempo, dt, dt2, dt6, kx[4], kv[4];
+   double k, massa, posicao, velocidade, tempo, dt, dt2, dt6, kx[4], kv[4],
+      omega2;
    FILE *fPosicao = fopen("Posicao.dat", "w");
 
    /* Condicoes de contorno */
@@ -37,17 +31,17 @@ int main(void){
    countMax = (int)(0.1/dt); /* Serve para o arquivo nao ficar muito 'pesado'*/
 
    for(tempo = 0.0; tempo <= 30.0; tempo += dt){
-      kv[0] = kVelocidade(posicao);
-      kx[0] = kPosicao(velocidade);
+      kv[0] = -omega2 * posicao;
+      kx[0] = velocidade;
 
-      kv[1] = kVelocidade(posicao + kv[0] * dt2);
-      kx[1] = kPosicao(velocidade + kx[0] * dt2);
+      kv[1] = kv[0] + kv[0] * dt2;
+      kx[1] = velocidade + kx[0] * dt2;
 
-      kv[2] = kVelocidade(posicao + kv[1] * dt2);
-      kx[2] = kPosicao(velocidade + kx[1] * dt2);
+      kv[2] = kv[0] + kv[1] * dt2;
+      kx[2] = velocidade + kx[1] * dt2;
 
-      kv[3] = kVelocidade(posicao + kv[2] * dt);
-      kx[3] = kPosicao(velocidade + kx[2] * dt);
+      kv[3] = kv[0] + kv[2] * dt2;
+      kx[3] = velocidade + kx[2] * dt;
       /* Calculo para a velocidade em funcao do tempo */
       velocidade += (kv[0] + 2.0 * kv[1] + 2.0 * kv[2] + kv[3]) * dt6;
       /* Calculo para  a posicao em funcao do tempo */
