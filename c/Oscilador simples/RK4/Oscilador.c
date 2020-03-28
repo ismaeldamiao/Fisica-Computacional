@@ -48,7 +48,7 @@ int main(void){
       kx[2] = kPosicao(velocidade + kv[1] * dt2);
 
       kv[3] = kVelocidade(posicao + kx[2] * dt);
-      kx[3] = kPosicao(velocidade + kv[2] * dt2);
+      kx[3] = kPosicao(velocidade + kv[2] * dt);
       /* Calculo para a velocidade em funcao do tempo */
       velocidade += (kv[0] + 2.0 * kv[1] + 2.0 * kv[2] + kv[3]) * dt6;
       /* Calculo para  a posicao em funcao do tempo */
