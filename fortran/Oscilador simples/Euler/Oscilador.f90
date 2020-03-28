@@ -2,7 +2,7 @@
 !         Instituto de Fisica,
 !         Universidade Federal de Alagoas
 !  E-mail: ismaellxd@gmail.com
-!  Copyright © 2019 MIT LICENCE
+!  Copyright © 2020 MIT LICENCE
 !  GIT: https://github.com/ismaeldamiao/ismael-damiao-repo
 !  Objetivo: Resolver o oscilador hamonico simples pelo metodo de Euler (cf. 
 !            Moyses Vol2 p42)
