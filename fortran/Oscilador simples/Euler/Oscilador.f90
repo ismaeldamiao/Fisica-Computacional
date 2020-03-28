@@ -29,8 +29,8 @@ PROGRAM Oscilador
 
    tempo = 0.0d0
    DO; IF(tempo <= 30.0d0) THEN
-      aux(1) = - omega2 * posicao;
-      aux(2) = velocidade;
+      aux(1) = - omega2 * posicao
+      aux(2) = velocidade
       ! Calculo para a velocidade em funcao do tempo
       velocidade = velocidade + aux(1) * dt
       ! Calculo para  a posicao em funcao do tempo
