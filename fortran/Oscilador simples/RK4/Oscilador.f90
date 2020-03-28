@@ -22,7 +22,7 @@ PROGRAM Oscilador
    k = 1.0d0 ! Constante da mola
    omega2 = k / massa ! Frenquenca angular
 
-   dt = 1.0d-6 ! Discreticaao dos pontos
+   dt = 1.0d-3 ! Discreticaao dos pontos
    dt2 = dt * 0.5d0
    dt6 = dt / 6.0d0
    posicao = 10.0d0 ! Posicao inicial da massa oscilante
