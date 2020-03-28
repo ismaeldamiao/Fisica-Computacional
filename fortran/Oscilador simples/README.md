@@ -7,6 +7,10 @@ Se quiser Runge-kutta 4ª ordem:
 ```powershell
 wget "https://github.com/ismaeldamiao/ismael-damiao-repo/raw/master/fortran/Oscilador%20simples/RK4/Oscilador.f90"
 ```
+Baixe também os comando do gnuplot:
+```powershell
+wget "https://github.com/ismaeldamiao/ismael-damiao-repo/raw/master/fortran/Oscilador%20simples/plot.gnuplot"
+```
 
 # Compilando
 
