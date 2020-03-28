@@ -3,18 +3,25 @@
           Instituto de Fisica,
           Universidade Federal de Alagoas
    E-mail: ismaellxd@gmail.com
-   Copyright © 2019 MIT LICENCE
+   Copyright © 2020 MIT LICENCE
    GIT: https://github.com/ismaeldamiao/ismael-damiao-repo
    Objetivo: Resolver o oscilador hamonico simples pelo metodo de Euler (cf. 
              Moyses Vol2 p42)
-   Escrito em: 02 de agosto de 2019
+   Escrito em: 28 de marco de 2020
 */
 #include<stdio.h>
 #include<math.h>
-
+double omega2;
+double kVelocidade(double posicao){
+   return - omega2 * posicao;
+}
+ 
+double kPosicao(double velocidade){
+   return velocidade;
+}
 int main(void){
    int count = 0, countMax;
-   double k, massa, posicao, velocidade, tempo, dt, omega2, aux[2];
+   double k, massa, posicao, velocidade, tempo, dt, dt2, dt6, kx[4], kv[4];
    FILE *fPosicao = fopen("Posicao.dat", "w");
 
    /* Condicoes de contorno */
@@ -22,19 +29,30 @@ int main(void){
    k = 1.0; /* Constante da mola*/
    omega2 = k / massa; /* Frenquenca angular */
 
-   dt = 1.0e-6; /* Discreticaao dos pontos */
+   dt = 1.0e-3; /* Discreticaao dos pontos */
+   dt2 = dt * 0.5;
+   dt6 = dt / 6.0;
    posicao = 10.0; /* Posicao inicial da massa oscilante */
    velocidade = 0.0; /* Velocidade inicial da massa oscilante */
 
    countMax = (int)(0.1/dt); /* Serve para o arquivo nao ficar muito 'pesado'*/
 
    for(tempo = 0.0; tempo <= 30.0; tempo += dt){
-      aux[0] = - omega2 * posicao;
-      aux[1] = velocidade;
+      kv[0] = kVelocidade(posicao);
+      kx[0] = kPosicao(velocidade);
+
+      kv[1] = kVelocidade(posicao + kx[0] * dt2);
+      kx[1] = kPosicao(velocidade + kv[0] * dt2);
+
+      kv[2] = kVelocidade(posicao + kx[1] * dt2);
+      kx[2] = kPosicao(velocidade + kv[1] * dt2);
+
+      kv[3] = kVelocidade(posicao + kx[2] * dt);
+      kx[3] = kPosicao(velocidade + kv[2] * dt2);
       /* Calculo para a velocidade em funcao do tempo */
-      velocidade += aux[0] * dt;
+      velocidade += (kv[0] + 2.0 * kv[1] + 2.0 * kv[2] + kv[3]) * dt6;
       /* Calculo para  a posicao em funcao do tempo */
-      posicao += aux[1] * dt;
+      posicao += (kx[0] + 2.0 * kx[1] + 2.0 * kx[2] + kx[3]) * dt6;;
 
       ++count;
       if(count > countMax){
