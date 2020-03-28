@@ -52,7 +52,7 @@ int main(void){
       /* Calculo para a velocidade em funcao do tempo */
       velocidade += (kv[0] + 2.0 * kv[1] + 2.0 * kv[2] + kv[3]) * dt6;
       /* Calculo para  a posicao em funcao do tempo */
-      posicao += (kx[0] + 2.0 * kx[1] + 2.0 * kx[2] + kx[3]) * dt6;;
+      posicao += (kx[0] + 2.0 * kx[1] + 2.0 * kx[2] + kx[3]) * dt6;
 
       ++count;
       if(count > countMax){
