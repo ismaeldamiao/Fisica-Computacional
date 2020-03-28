@@ -15,7 +15,6 @@ double omega2;
 double kVelocidade(double posicao){
    return - omega2 * posicao;
 }
- 
 double kPosicao(double velocidade){
    return velocidade;
 }
@@ -29,7 +28,7 @@ int main(void){
    k = 1.0; /* Constante da mola*/
    omega2 = k / massa; /* Frenquenca angular */
 
-   dt = 1.0e-3; /* Discreticaao dos pontos */
+   dt = 1.0e-6; /* Discreticaao dos pontos */
    dt2 = dt * 0.5;
    dt6 = dt / 6.0;
    posicao = 10.0; /* Posicao inicial da massa oscilante */
@@ -41,14 +40,14 @@ int main(void){
       kv[0] = kVelocidade(posicao);
       kx[0] = kPosicao(velocidade);
 
-      kv[1] = kVelocidade(posicao + kx[0] * dt2);
-      kx[1] = kPosicao(velocidade + kv[0] * dt2);
+      kv[1] = kVelocidade(posicao + kv[0] * dt2);
+      kx[1] = kPosicao(velocidade + kx[0] * dt2);
 
-      kv[2] = kVelocidade(posicao + kx[1] * dt2);
-      kx[2] = kPosicao(velocidade + kv[1] * dt2);
+      kv[2] = kVelocidade(posicao + kv[1] * dt2);
+      kx[2] = kPosicao(velocidade + kx[1] * dt2);
 
-      kv[3] = kVelocidade(posicao + kx[2] * dt);
-      kx[3] = kPosicao(velocidade + kv[2] * dt);
+      kv[3] = kVelocidade(posicao + kv[2] * dt);
+      kx[3] = kPosicao(velocidade + kx[2] * dt);
       /* Calculo para a velocidade em funcao do tempo */
       velocidade += (kv[0] + 2.0 * kv[1] + 2.0 * kv[2] + kv[3]) * dt6;
       /* Calculo para  a posicao em funcao do tempo */
