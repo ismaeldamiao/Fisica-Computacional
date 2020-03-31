@@ -34,14 +34,14 @@ int main(void){
       kv[0] = -omega2 * posicao;
       kx[0] = velocidade;
 
-      kv[1] = kv[0] + kv[0] * dt2;
-      kx[1] = velocidade + kx[0] * dt2;
+      kv[1] = -omega2 * (posicao + kx[0] * dt2);
+      kx[1] = velocidade + kv[0] * dt2;
 
-      kv[2] = kv[0] + kv[1] * dt2;
-      kx[2] = velocidade + kx[1] * dt2;
+      kv[2] = -omega2 * (posicao + kx[1] * dt2);
+      kx[2] = velocidade + kv[1] * dt2;
 
-      kv[3] = kv[0] + kv[2] * dt2;
-      kx[3] = velocidade + kx[2] * dt;
+      kv[3] = -omega2 * (posicao + kx[2] * dt2);
+      kx[3] = velocidade + kv[2] * dt;
       /* Calculo para a velocidade em funcao do tempo */
       velocidade += (kv[0] + 2.0 * kv[1] + 2.0 * kv[2] + kv[3]) * dt6;
       /* Calculo para  a posicao em funcao do tempo */
