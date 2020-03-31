@@ -35,14 +35,14 @@ PROGRAM Oscilador
       kv(1) = - omega2 * posicao
       kx(1) = velocidade
 
-      kv(2) = kv(1) + kv(1) * dt2
-      kx(2) = velocidade + kx(1) * dt2
+      kv(2) = -omega2 * (posicao + kx(1) * dt2)
+      kx(2) = velocidade + kv(1) * dt2
 
-      kv(3) = kv(1) + kv(2) * dt2
+      kv(3) = -omega2 * (posicao + kx(2) * dt2)
       kx(3) = velocidade + xv(2) * dt2
 
-      kv(4) = kv(1) + kv(3) * dt
-      kx(4) = velocidade + kx(3) * dt
+      kv(4) = -omega2 * (posicao + kx(3) * dt2)
+      kx(4) = velocidade + kv(3) * dt
       ! Calculo para a velocidade em funcao do tempo
       velocidade = velocidade + &
          (kv(1) + 2.0d0 * kv(2) + 2.0d0 * kv(3) + kv(4)) * dt6
