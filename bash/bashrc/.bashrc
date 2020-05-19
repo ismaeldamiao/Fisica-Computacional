@@ -58,7 +58,7 @@ if [ "$PREFIX" == "/data/data/com.termux/files/usr" ]; then
    fi
    USER='user'
    HOSTNAME='Termux'
-   PS1FINAL='\[\n\]\$ '
+   PS1FINAL='\n\$ '
    # Facilitar acesso ao diretório do ubuntu
    UBUNTU=$HOME/ubuntu/ubuntu-fs/root
    # aliases Termux
