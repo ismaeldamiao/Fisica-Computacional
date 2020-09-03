@@ -4,7 +4,7 @@ MODULE ran
 CONTAINS
 
    FUNCTION ran1(idum)
-      INTEGER, PARAMETER :: IA = 16807, IM = 2147483647, IQ = 127773,&
+      INTEGER(8), PARAMETER :: IA = 16807, IM = 2147483647, IQ = 127773,&
       NTAB = 32, NDIV = 1+(IM-1)/NTAB, IR = 2836
       REAL(8), PARAMETER :: AM = 1.0d0/IM, EPS = 1.2d-7, RNMX = 1.0d0-EPS
       INTEGER(8), intent(inout) :: idum
