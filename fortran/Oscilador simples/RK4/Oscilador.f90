@@ -39,7 +39,7 @@ PROGRAM Oscilador
       kx(2) = velocidade + kv(1) * dt2
 
       kv(3) = -omega2 * (posicao + kx(2) * dt2)
-      kx(3) = velocidade + xv(2) * dt2
+      kx(3) = velocidade + kv(2) * dt2
 
       kv(4) = -omega2 * (posicao + kx(3) * dt2)
       kx(4) = velocidade + kv(3) * dt
