@@ -8,7 +8,7 @@ double ran1(long int*);
 
 int main(void){
    long int semente = -9;
-   FILE *f = fopen("aleatorios.txt", "w");
+   FILE *f = fopen("exemplo_ran1.txt", "w");
 
    for(int i = 0; i < 1999; ++i)
    fprintf(f, "%1.3g", ran1(&semente));
