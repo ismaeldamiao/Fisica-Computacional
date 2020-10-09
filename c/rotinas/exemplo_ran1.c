@@ -1,5 +1,5 @@
 /* ***
-wget
+wget https://raw.githubusercontent.com/ismaeldamiao/avulsos/master/c/rotinas/exemplo_ran1.c
 clang exemplo_ran1.c -o exemplo_ran1.o && ./exemplo_ran1.o
 *** */
 #include<stdio.h>
