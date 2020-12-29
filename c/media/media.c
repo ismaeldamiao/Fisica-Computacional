@@ -93,8 +93,12 @@ int main(){
       Cria uma lista contendo os nomes de todos os arquivos de onde vamos tirar
       as medias
    *** */
-   fprintf(stdout,"Qual o padrao do nome dos arquivo para fazer a media (*)? ");
-   scanf("%s", nome);
+   if(argc < 2){
+      fprintf(stdout,"Qual o padrao do nome dos arquivo para fazer a media (*)? ");
+      scanf("%s", nome);
+   }else{
+      sprintf(nome, "%s", argv[1]);
+   }
 
    /* Apagar o arquivo de resultado, caso ja exista */
    sprintf(s_resultado, "%s.dat", nome);
