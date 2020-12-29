@@ -71,7 +71,7 @@ int arquivo_existe(const char*);
 /* *****************************************************************************
    Funcao principal
 ***************************************************************************** */
-int main(){
+int main(int argc, char **argv){
 
    /* Strings - s */
    const char *s_lista = "listas_de_arquivos.tmp";
