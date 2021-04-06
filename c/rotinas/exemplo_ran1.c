@@ -1,7 +1,7 @@
 /* ***
 wget https://raw.githubusercontent.com/ismaeldamiao/avulsos/master/c/rotinas/exemplo_ran1.c
 
-wget -O ran1.f90 https://github.com/ismaeldamiao/avulsos/raw/master/fortran/rotinas/ran1.f90
+wget -qO ran1.c https://github.com/ismaeldamiao/avulsos/raw/master/c/rotinas/ran1.c
 clang exemplo_ran1.c -o exemplo_ran1.o && ./exemplo_ran1.o
 *** */
 #include <stdio.h>
